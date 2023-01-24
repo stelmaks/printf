@@ -10,13 +10,12 @@
  */
 
 int print_char(va_list args)
-{        
+{
 	unsigned char c = (char)va_arg(args, int);
 
 	_putchar(c);
 
 	return (1);
-       
 }
 
 /************************* PRINT A STRING *************************/
@@ -74,9 +73,7 @@ int print_percent(va_list args)
 
 	if (s)
 	{
-		int p = 37;
-
-		_putchar(p);
+		_putchar(37);
 	}
 
 	return (1);
