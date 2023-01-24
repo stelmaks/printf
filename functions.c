@@ -10,19 +10,13 @@
  */
 
 int print_char(va_list args)
-{
-	char c = (char)va_arg(args, int);
+{        
+	unsigned char c = (char)va_arg(args, int);
 
-	if (c)
-	{
-		int count =  0;
+	_putchar(c);
 
-		count = _putchar(c);
-
-		return (count);
-	}
-
-	return (0);
+	return (1);
+       
 }
 
 /************************* PRINT A STRING *************************/
@@ -38,7 +32,9 @@ int print_string(va_list args)
 {
 	char *s;
 
-	int i, len;
+	int i;
+
+	int len;
 
 	s = va_arg(args, char *);
 
@@ -50,6 +46,7 @@ int print_string(va_list args)
 		{
 			_putchar(s[i]);
 		}
+		return (len);
 	}
 
 	else
@@ -82,5 +79,5 @@ int print_percent(va_list args)
 		_putchar(p);
 	}
 
-	return (0);
+	return (1);
 }
