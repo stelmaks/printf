@@ -17,7 +17,7 @@ int print_char(va_list args)
 	{
 		int count =  0;
 
-		count = write(1, &c, 1);
+		count = _putchar(c);
 
 		return (count);
 	}
@@ -48,7 +48,7 @@ int print_string(va_list args)
 		len = strlen(s);
 		for (i = 0; i < len; i++)
 		{
-			write(1, &s[i], 1);
+			_putchar(s[i]);
 		}
 	}
 
@@ -57,7 +57,7 @@ int print_string(va_list args)
 		len = strlen(s);
 		for (i = 0; i < len; i++)
 		{
-			write(1, &s[i], 1);
+			_putchar(s[i]);
 		}
 	}
 	return (len);
@@ -79,7 +79,7 @@ int print_percent(va_list args)
 	{
 		int p = 37;
 
-		write(1, &p, 1);
+		_putchar(p);
 	}
 
 	return (0);
