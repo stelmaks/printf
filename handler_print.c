@@ -11,7 +11,7 @@ int (*handle_print(const char *format))(va_list)
 {
 	int i;
 
-	spec_s  my_spec_dict[11] = {
+	spec_s  my_spec_dict[] = {
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent},
