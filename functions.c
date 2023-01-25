@@ -11,7 +11,7 @@
 
 int print_char(va_list args)
 {
-	unsigned char c = (char)va_arg(args, int);
+	char c = (char)va_arg(args, int);
 
 	_putchar(c);
 
@@ -33,30 +33,21 @@ int print_string(va_list args)
 
 	int i;
 
-	int len;
-
 	s = va_arg(args, char *);
 
 	if (s == NULL)
 	{
-		s = "(null)";
-		len = strlen(s);
-		for (i = 0; i < len; i++)
-		{
-			_putchar(s[i]);
-		}
-		return (len);
+	s = "(null)";
 	}
-
-	else
+	else if (*s == '\0')
 	{
-		len = strlen(s);
-		for (i = 0; i < len; i++)
-		{
-			_putchar(s[i]);
-		}
+	return (-1);
 	}
-	return (len);
+	for (i = 0; s[i]; i++)
+	{
+	_putchar(s[i]);
+	}
+	return (i);
 }
 
 /************************* PRINT PERCENT SIGN *************************/
