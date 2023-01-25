@@ -41,11 +41,11 @@ int print_string(va_list args)
 	{
 		s = "(null)";
 		len = strlen(s);
-
-	for (i = 0; i < len; i++)
-	{
-		write(1, &s[i], 1);
-	}
+		for (i = 0; i < len; i++)
+		{
+			write(1, &s[i], 1);
+		}
+		return (len);
 	}
 	else
 	{
@@ -54,9 +54,8 @@ int print_string(va_list args)
 		{
 		write(1, &s[i], 1);
 		}
+		return (len);
 	}
-	return (len);
-
 }
 
 /************************* PRINT PERCENT SIGN *************************/
@@ -69,9 +68,9 @@ int print_string(va_list args)
 
 int print_percent(va_list args)
 {
-        (void)args;
-	
-        _putchar(37);
+	(void)args;
+
+	_putchar(37);
 
 	return (1);
 }
