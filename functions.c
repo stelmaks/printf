@@ -33,21 +33,30 @@ int print_string(va_list args)
 
 	int i;
 
+	int len;
+
 	s = va_arg(args, char *);
 
 	if (s == NULL)
 	{
-	s = "(null)";
-	}
-	else if (*s == '\0')
+		s = "(null)";
+		len = strlen(s);
+
+	for (i = 0; i < len; i++)
 	{
-	return (-1);
+		write(1, &s[i], 1);
 	}
-	for (i = 0; s[i]; i++)
+	}
+	else
 	{
-	_putchar(s[i]);
+		len = strlen(s);
+		for (i = 0; i < len; i++)
+		{
+		write(1, &s[i], 1);
+		}
 	}
-	return (i);
+	return (len);
+
 }
 
 /************************* PRINT PERCENT SIGN *************************/
