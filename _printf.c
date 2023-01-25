@@ -4,13 +4,13 @@
  *@format: specifier to look for
  *Return: count
  */
-int _printf (const char *format, ...)
+int _printf(const char *format, ...)
 {
-int i =0;
+int i = 0;
 int num = 0;
 int count = 0;
 va_list p_args;
-int(*f)(va_list);
+int (*f)(va_list);
 va_start(p_args, format);
 if (format == NULL)
 {
@@ -35,18 +35,12 @@ count = count + num;
 i = i + 2;
 continue;
 }
-if (format[i + 1] == '\0')
-{
-break;
-}
 if (format[i + 1] != '\0')
 {
 num = write(1, &format[i], 1);
 count = count + num;
 i++;
-continue;  
-}
-}
-}
-return count;
+continue;
+}}}
+return (count);
 }
