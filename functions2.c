@@ -90,53 +90,70 @@ return (count);
  */
 int print_unsig(va_list args)
 {
-unsigned int a[10];
-unsigned int j = 1, m = 1000000000, n, sum = 0;
-int counter = 0;
+unsigned int n = va_arg(args, unsigned int);
+int num, last = n % 10, digit, exp = 1;
+int  i = 1;
 
-n = va_arg(args, unsigned int);
-a[0] = n / m;
-for (; j < 10; j++)
+n = n / 10;
+num = n;
+
+if (last < 0)
 {
-m /= 10;
-a[j] = (n / m) % 10;
+_putchar('-');
+num = -num;
+n = -n;
+last = -last;
+i++;
 }
-for (j = 0; j < 10; j++)
+if (num > 0)
 {
-sum += a[j];
-if (sum || j == 9)
+while (num / 10 != 0)
 {
-_putchar('0' + a[j]);
-counter++;
+exp = exp * 10;
+num = num / 10;
+}
+num = n;
+while (exp > 0)
+{
+digit = num / exp;
+_putchar(digit + '0');
+num = num - (digit * exp);
+exp = exp / 10;
+i++;
 }
 }
-return (counter);
+_putchar(last + '0');
+return (i);
 }
 
 
 
 int print_oct(va_list args)
 {
-unsigned int a[11];
-unsigned int j = 1, m = 1073741824, n, sum = 0;
-int counter;
+int i;
+int *array;
+int counter = 0;
+unsigned int num = va_arg(args, unsigned int);
+unsigned int temp = num;
 
-n = va_arg(args, unsigned int);
-a[0] = n / m;
-for (; j < 11; j++)
+while (num / 8 != 0)
 {
-m /= 8;
-a[j] = (n / m) % 8;
-}
-for (j = 0; j < 11; j++)
-{
-sum += a[j];
-if (sum || j == 10)
-{
-_putchar('0' + a[j]);
+num /= 8;
 counter++;
 }
+counter++;
+array = malloc(counter * sizeof(int));
+
+for (i = 0; i < counter; i++)
+{
+array[i] = temp % 8;
+temp /= 8;
 }
+for (i = counter - 1; i >= 0; i--)
+{
+_putchar(array[i] + '0');
+}
+free(array);
 return (counter);
 }
 
