@@ -49,7 +49,8 @@ return (i);
 */
 int print_bin(va_list b)
 {
-unsigned int len, powten, j, digit, n, num;
+unsigned int len, powten;
+unsigned int j, digit, n, num;
 int count = 0;
 
 n = va_arg(b, unsigned int);
@@ -117,7 +118,7 @@ while (exp > 0)
 {
 digit = num / exp;
 _putchar(digit + '0');
-num = num - (digit * exp);
+num = num - (digit *exp);
 exp = exp / 10;
 i++;
 }
@@ -126,46 +127,18 @@ _putchar(last + '0');
 return (i);
 }
 
-
-
-int print_oct(va_list args)
-{
-int i;
-int *array;
-int counter = 0;
-unsigned int num = va_arg(args, unsigned int);
-unsigned int temp = num;
-
-while (num / 8 != 0)
-{
-num /= 8;
-counter++;
-}
-counter++;
-array = malloc(counter * sizeof(int));
-
-for (i = 0; i < counter; i++)
-{
-array[i] = temp % 8;
-temp /= 8;
-}
-for (i = counter - 1; i >= 0; i--)
-{
-_putchar(array[i] + '0');
-}
-free(array);
-return (counter);
-}
-
-
-
+/********** PRINT UNSIGNED LOWERCASE HEXADECIMAL****************/
+/**
+ * print_lx - function that prints unsigned lowercase hexadecimal
+ * @args: unsigned number
+ * Return: size the output
+ */
 int print_lx(va_list args)
 {
 unsigned int a[8];
 unsigned int j = 1, m = 268435456, n, sum = 0;
 char diff;
 int counter = 0;
-
 n = va_arg(args, unsigned int);
 diff = 'a' - ':';
 a[0] = n / m;
@@ -188,15 +161,18 @@ counter++;
 }
 return (counter);
 }
-
-
+/**************** PRINT UNSIGNED UPPERCASE HEXADECIMAL******************/
+/**
+ * print_uX - function that prints unsigned lowercase hexadecimal
+ * @args: unsigned number
+ * Return: size the output
+ */
 int print_uX(va_list args)
 {
 unsigned int a[8];
 unsigned int j = 1, m = 268435456, n, sum = 0;
 char diff;
 int counter;
-
 n = va_arg(args, unsigned int);
 diff = 'A' - ':';
 a[0] = n / m;
