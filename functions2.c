@@ -90,34 +90,45 @@ return (count);
  */
 int print_unsig(va_list args)
 {
-unsigned int len, powten, j, digit, n, num;
-int count = 0;
-n = va_arg(args, unsigned int);
-if (n != 0)
+unsigned int num;
+num = va_arg(args, unsigned int);
+if (num == 0)
 {
-num = n;
+return (unsgined_number(num));
+}
+if (num < 1)
+{
+return (-1);
+}
+return (unsgined_number(num));
+}
+
+
+/**
+ * unsgined_number - Prints an unsigned number
+ * @n: unsigned integer to be printed
+ * Return: The amount of numbers printed
+ */
+int unsgined_number(unsigned int n)
+{
+int div;
+int len;
+unsigned int num;
+
+div = 1;
 len = 0;
-while (num != 0)
+
+num = n;
+
+for (; num / div > 9; )
 {
-num /= 10;
-len++;
+div *= 10;
 }
-powten = 1;
-for (j = 1; j <= len - 1; j++)
-powten *= 10;
-for (j = 1; j <= len; j++)
+for (; div != 0; )
 {
-digit = n / powten;
-_putchar(digit + '0');
-count++;
-n -= digit *powten;
-powten /= 10;
+len += _putchar('0' + num / div);
+num %= div;
+div /= 10;
 }
-}
-else
-{
-_putchar('0');
-return (1);
-}
-return (count);
+return (len);
 }

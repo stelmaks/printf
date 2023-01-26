@@ -25,7 +25,7 @@ int _printf(const char *format, ...);
 int (*handle_print(const char *))(va_list);
 /*********Print CHARACTER*****************/
 int print_char(va_list);
-/*********Print STRING*****************/
+/*********PRINT STRING*****************/
 int print_string(va_list);
 /*********PRINT PERCENT*****************/
 int print_percent(va_list);
@@ -37,5 +37,6 @@ int print_int(va_list);
 int print_bin(va_list);
 /*********PRINT UNSIGNED*****************/
 int print_unsig(va_list);
+int unsgined_number(unsigned int n);
 #endif
 
