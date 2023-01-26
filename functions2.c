@@ -49,10 +49,8 @@ return (i);
 */
 int print_bin(va_list b)
 {
-unsigned int len, powten;
-unsigned int j, digit, n, num;
+unsigned int len, powten, j, digit, n, num;
 int count = 0;
-
 n = va_arg(b, unsigned int);
 if (n != 0)
 {
@@ -126,7 +124,7 @@ return (i);
 }
 /************************* PRINT UNSIGNED OCTAL *******************/
 /**
- * print_oct - function that prints unsigned number
+ * print_oct - function that prints unsigned octal
  * @args: unsigned number
  * Return: size the output
  */

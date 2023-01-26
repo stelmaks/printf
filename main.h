@@ -37,6 +37,8 @@ int print_int(va_list);
 int print_bin(va_list);
 /*********PRINT UNSIGNED*****************/
 int print_unsig(va_list);
-int unsgined_number(unsigned int n);
+int print_oct(va_list);
+int print_lx(va_list);
+int print_uX(va_list);
 #endif
 
