@@ -33,7 +33,7 @@ while (exp > 0)
 {
 digit = num / exp;
 _putchar(digit + '0');
-num = num - (digit * exp);
+num = num - (digit *exp);
 exp = exp / 10;
 i++;
 }
@@ -90,34 +90,19 @@ return (count);
  */
 int print_unsig(va_list args)
 {
-unsigned int len, powten, j, digit, n, num;
-int count = 0;
+unsigned int n;
+int expo = 1;
+int len = 0;
+
 n = va_arg(args, unsigned int);
-if (n != 0)
+
+while (n / expo > 9)
+expo *= 10;
+while (expo != 0)
 {
-num = n;
-len = 0;
-while (num != 0)
-{
-num /= 10;
-len++;
+len = len + _putchar(n / expo + '0');
+n = n % expo;
+expo = expo / 10;
 }
-powten = 1;
-for (j = 1; j <= len - 1; j++)
-powten *= 10;
-for (j = 1; j <= len; j++)
-{
-digit = n / powten;
-_putchar(digit + '0');
-count++;
-n -= digit *powten;
-powten /= 10;
-}
-}
-else
-{
-_putchar('0');
-return (1);
-}
-return (count);
+return (len);
 }
