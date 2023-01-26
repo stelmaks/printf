@@ -19,23 +19,23 @@ char *s;
 int (*fom)(va_list);
 }
 spec_s;
-/*********Function Selector************/
+/*********FUNCTION SELECTOR************/
 int _printf(const char *format, ...);
-/*********Format specifier**************/
+/*********FORMAT SPECIFIER**************/
 int (*handle_print(const char *))(va_list);
-/*********Print Chracter,t*****************/
+/*********Print CHARACTER*****************/
 int print_char(va_list);
-/*********Print String*****************/
+/*********Print STRING*****************/
 int print_string(va_list);
-/*********Print percent*****************/
+/*********PRINT PERCENT*****************/
 int print_percent(va_list);
-/*********Print *****************/
+/*********PUTCHARACTER*****************/
 int _putchar(char ch);
-/*********Print Integer *****************/
+/*********PRINT INTERGER *****************/
 int print_int(va_list);
-/*********Print Binary*****************/
+/*********PRINT BINARY*****************/
 int print_bin(va_list);
-/*********Print UNSIGNED*****************/
+/*********PRINT UNSIGNED*****************/
 int print_unsig(va_list);
 #endif
 
